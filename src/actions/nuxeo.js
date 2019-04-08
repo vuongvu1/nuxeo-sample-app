@@ -10,3 +10,10 @@ export const authenticate = () =>
       payload: nuxeo,
     });
   };
+
+export const clearAuthenticate = () =>
+  (dispatch, getState) => {
+    dispatch({
+      type: types.CLEAR_AUTHENTICATION,
+    });
+  };
