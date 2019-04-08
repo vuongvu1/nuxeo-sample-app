@@ -1,19 +1,18 @@
-import React from 'react'
-import { push } from 'connected-react-router'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
+import { authenticate } from 'actions/nuxeo';
 
 const Home = props => (
   <div>
     <h1>Home</h1>
     <p>Welcome home!</p>
-    <button onClick={() => props.changePage()}>Go to about page via redux</button>
+    <button onClick={() => props.authenticate()}>Authen</button>
   </div>
 )
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  changePage: () => push('/about-us')
-}, dispatch)
+const mapDispatchToProps = dispatch => ({
+  authenticate: () => dispatch(authenticate()),
+});
 
 export default connect(
   null,
