@@ -68,7 +68,6 @@ export const getUserInfo = async ({ nuxeo }) =>
 export const getServerInfo = async ({ nuxeo }) =>
   nuxeo.connect()
     .then(function(client){
-      console.log(client.serverVersion);
       return client.serverVersion;
     })
     .catch(function(error) {

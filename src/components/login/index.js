@@ -10,7 +10,7 @@ class Login extends React.Component {
         {
           nuxeo
           ? (
-            <div>Login as {nuxeo._auth.username}</div>
+            <div>Login as <strong>{nuxeo._auth.username}</strong></div>
           )
           : (<button onClick={() => authenticate()}>Login</button>)
         }

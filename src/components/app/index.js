@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import Upload from '../upload';
 import Directory from '../dir';
 import Login from '../login';
@@ -10,10 +10,10 @@ import './index.scss';
 const App = () => (
   <div>
     <header>
-      <Link to="/">User</Link>
-      <Link to="/upload">Upload</Link>
-      <Link to="/dir">Directory</Link>
-      <Link to="/op">Operation</Link>
+      <NavLink activeClassName="active" exact={true} to="/">User</NavLink>
+      <NavLink activeClassName="active" exact={true} to="/upload">Upload</NavLink>
+      <NavLink activeClassName="active" exact={true} to="/dir">Directory</NavLink>
+      <NavLink activeClassName="active" exact={true} to="/op">Operation</NavLink>
       <Login />
     </header>
 
