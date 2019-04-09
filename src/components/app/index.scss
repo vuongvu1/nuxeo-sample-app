@@ -1,13 +1,21 @@
 
 header {
   background: #24292e;
-  height: 2rem;
+  height: 40px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
 
   * {
     color: #fff;
     padding: 10px;
     text-decoration: none;
+  }
+
+  button {
+      padding: 0 10px;
+      margin: 5px;
+      color: black;
+      height: 80%;
+      border-radius: 3px;
   }
 }
