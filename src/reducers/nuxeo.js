@@ -11,7 +11,6 @@ export const types = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case types.AUTHENTICATE:
-      console.log(action.payload);
       return {
         ...state,
         authentication: action.payload,

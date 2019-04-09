@@ -17,6 +17,7 @@ class Upload extends React.Component {
 
     return (
       <div>
+        <strong>Upload file</strong>
         <br />
         <label htmlFor="avatar">Choose a file:</label>
         <input type="file" onChange={e => this.setState({ selectedFile:  e.target.files[0] })} />

@@ -53,3 +53,53 @@ export const uploadBatch = async ({ nuxeo, file }) => {
     });
 
 };
+
+export const getUserInfo = async ({ nuxeo }) =>
+  nuxeo.connect()
+    .then(function(client){
+      // client.user.id === 'Administrator'
+      return client.user;
+    })
+    .catch(function(error) {
+      // wrong credentials / auth method / ...
+      throw error;
+    });
+
+export const getServerInfo = async ({ nuxeo }) =>
+  nuxeo.connect()
+    .then(function(client){
+      console.log(client.serverVersion);
+      return client.serverVersion;
+    })
+    .catch(function(error) {
+      throw error;
+    });
+
+export const createFolder = async ({ nuxeo, folderPath = '/default-domain/workspaces/', folderName = 'test'}) =>
+  nuxeo.operation('Document.Create')
+    .params({
+      type: 'Folder',
+      name: folderName,
+      properties: `dc:title=${folderName} \ndc:description=A Simple Folder`
+    })
+    .input(folderPath)
+    .execute()
+    .then(function(doc) {
+      return doc.path;
+    })
+    .catch(function(error) {
+      throw error;
+    });
+
+export const getDir = ({ nuxeo }) => {
+  nuxeo.directory('/default-domain/workspaces/')
+    .fetch('test')
+    .then(function(res) {
+      // res.properties.id === 'article'
+      // res.properties.label === 'article label.directories.nature.article'
+      console.log({ res });
+    })
+    .catch(function(error) {
+      throw new Error(error);
+    });
+};
