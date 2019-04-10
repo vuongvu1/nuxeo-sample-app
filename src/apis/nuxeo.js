@@ -90,7 +90,7 @@ export const createFolder = async ({ nuxeo, folderPath = '/default-domain/worksp
       throw error;
     });
 
-export const getDir = ({ nuxeo }) => {
+export const getRepo = ({ nuxeo }) => {
   nuxeo.directory('/default-domain/workspaces/')
     .fetch('test')
     .then(function(res) {
@@ -102,3 +102,10 @@ export const getDir = ({ nuxeo }) => {
       throw new Error(error);
     });
 };
+
+export const retrieveDocument = async ({ nuxeo }) =>
+  nuxeo.repository()
+    .fetch('/default-domain/workspaces/test')
+    .catch(function(error) {
+      throw error;
+    });
